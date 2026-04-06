@@ -12,11 +12,11 @@ import { authorizeRoles } from "../../../middlewares/role.middleware.js";
 
 const router = express.Router();
 
-// 🔓 Public routes
+//Public routes
 router.post("/register", createUser);
 router.post("/login", loginUser);
 
-// 🔒 Protected + RBAC
+//Protected + RBAC
 router.get("/", protect, authorizeRoles("admin"), getAllUsers);
 
 router.put("/:id", protect, authorizeRoles("admin"), updateUser);

@@ -5,7 +5,7 @@ import dashboardRoutes from "./dashboard.routes.js";
 
 const router = express.Router();
 
-// 🔗 Mount all modules
+//Mount all modules
 router.use("/users", userRoutes);
 router.use("/records", recordRoutes);
 router.use("/dashboard", dashboardRoutes); 

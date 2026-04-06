@@ -16,7 +16,7 @@ const sanitizeUser = (user) => {
   return obj;
 };
 
-// 🔹 Register
+// Register
 export const createUser = async (req, res) => {
   try {
     // Force default role
@@ -41,7 +41,7 @@ export const createUser = async (req, res) => {
   }
 };
 
-// 🔹 Login
+// Login
 export const loginUser = async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -91,7 +91,7 @@ export const loginUser = async (req, res) => {
   }
 };
 
-// 🔹 Get All Users
+//Get All Users
 export const getAllUsers = async (req, res) => {
   try {
     const users = await getAllUsersService();
@@ -108,7 +108,7 @@ export const getAllUsers = async (req, res) => {
   }
 };
 
-// 🔹 Update User
+//Update User
 export const updateUser = async (req, res) => {
   try {
     const user = await updateUserService(req.params.id, req.body);
@@ -126,7 +126,7 @@ export const updateUser = async (req, res) => {
   }
 };
 
-// 🔹 Delete User
+// Delete User
 export const deleteUser = async (req, res) => {
   try {
     await deleteUserService(req.params.id);

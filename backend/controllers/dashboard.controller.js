@@ -6,7 +6,7 @@ import {
   getWeeklyTrendsService
 } from "../services/dashboard.service.js";
 
-// 🔹 Full dashboard
+//Full dashboard
 export const getDashboard = async (req, res) => {
   try {
     const user = req.user;

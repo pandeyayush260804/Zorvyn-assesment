@@ -1,6 +1,6 @@
 import Record from "../models/record.model.js";
 
-// 🔹 Create Record
+//Create Record
 export const createRecordService = async (data, userId) => {
   const record = await Record.create({
     ...data,
@@ -10,7 +10,7 @@ export const createRecordService = async (data, userId) => {
   return record;
 };
 
-// 🔹 Get Records (with filters 🔥)
+// Get Records 
 export const getRecordsService = async (query, user) => {
   const filter = {};
 
@@ -19,7 +19,7 @@ export const getRecordsService = async (query, user) => {
     filter.createdBy = user.id;
   }
 
-  // 🔍 Filters
+  //Filters
   if (query.type) {
     filter.type = query.type;
   }
@@ -47,7 +47,7 @@ export const getRecordsService = async (query, user) => {
   return records;
 };
 
-// 🔹 Update Record
+// Update Record
 export const updateRecordService = async (id, data, user) => {
   const record = await Record.findById(id);
 
@@ -67,7 +67,7 @@ export const updateRecordService = async (id, data, user) => {
   return record;
 };
 
-// 🔹 Delete Record
+// Delete Record
 export const deleteRecordService = async (id, user) => {
   const record = await Record.findById(id);
 

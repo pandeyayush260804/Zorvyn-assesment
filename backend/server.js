@@ -3,17 +3,18 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import indexRoutes from "./api/v1/routes/index.js";
+import { errorHandler } from "./middlewares/error.middleware.js";
+
 
 
 dotenv.config();
 
 const app = express();
 
-// ✅ Global Middlewares
 app.use(cors());
 app.use(express.json());
 
-// ✅ Test Route
+// Test Route
 app.get("/", (req, res) => {
   res.json({
     success: true,
@@ -21,22 +22,25 @@ app.get("/", (req, res) => {
   });
 });
 
-// ✅ Use all routes
-app.use("/api/v1", indexRoutes); // ✅ fixed
+//  Use all routes
+app.use("/api/v1", indexRoutes); 
 
-// ✅ Start Server Function
+// Use of error middleware
+app.use(errorHandler);
+
+// Start Server Function
 const startServer = async () => {
   const isConnected = await connectDB();
 
   if (!isConnected) {
-    console.log("❌ Server not started due to DB failure");
+    console.log(" Server not started due to DB failure");
     process.exit(1);
   }
 
   const PORT = process.env.PORT || 5555;
 
   app.listen(PORT, () => {
-    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(` Server running on port ${PORT}`);
   });
 };
 

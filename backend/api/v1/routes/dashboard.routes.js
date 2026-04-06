@@ -5,7 +5,7 @@ import { authorizeRoles } from "../../../middlewares/role.middleware.js";
 
 const router = express.Router();
 
-// 📊 Full dashboard
+// Full dashboard
 router.get(
   "/",
   protect,

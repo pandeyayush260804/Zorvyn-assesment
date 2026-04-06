@@ -5,7 +5,6 @@ const getMatchFilter = (user) => {
   return user.role === "admin" ? {} : { createdBy: user.id };
 };
 
-// 🔹 1. Summary
 export const getSummaryService = async (user) => {
   const match = getMatchFilter(user);
 
@@ -34,7 +33,7 @@ export const getSummaryService = async (user) => {
   };
 };
 
-// 🔹 2. Category-wise totals
+//2. Category-wise totals
 export const getCategoryTotalsService = async (user) => {
   const match = getMatchFilter(user);
 
@@ -50,7 +49,7 @@ export const getCategoryTotalsService = async (user) => {
   ]);
 };
 
-// 🔹 3. Recent activity
+// 3. Recent activity
 export const getRecentActivityService = async (user) => {
   const match = getMatchFilter(user);
 
@@ -60,7 +59,7 @@ export const getRecentActivityService = async (user) => {
     .populate("createdBy", "username");
 };
 
-// 🔹 4. Monthly trends
+//4. Monthly trends
 export const getMonthlyTrendsService = async (user) => {
   const match = getMatchFilter(user);
 
@@ -88,7 +87,7 @@ export const getMonthlyTrendsService = async (user) => {
   ]);
 };
 
-// 🔹 5. Weekly trends
+//5. Weekly trends
 export const getWeeklyTrendsService = async (user) => {
   const match = getMatchFilter(user);
 

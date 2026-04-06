@@ -5,7 +5,7 @@ import {
   deleteRecordService
 } from "../services/record.service.js";
 
-// 🔹 Create Record
+// Create Record
 export const createRecord = async (req, res) => {
   try {
     const record = await createRecordService(req.body, req.user.id);
@@ -23,7 +23,7 @@ export const createRecord = async (req, res) => {
   }
 };
 
-// 🔹 Get Records (with filters)
+// Get Records (with filters)
 export const getRecords = async (req, res) => {
   try {
     const records = await getRecordsService(req.query, req.user);
@@ -40,7 +40,7 @@ export const getRecords = async (req, res) => {
   }
 };
 
-// 🔹 Update Record
+// Update Record
 export const updateRecord = async (req, res) => {
   try {
     const record = await updateRecordService(
@@ -62,7 +62,7 @@ export const updateRecord = async (req, res) => {
   }
 };
 
-// 🔹 Delete Record
+// Delete Record
 export const deleteRecord = async (req, res) => {
   try {
     await deleteRecordService(req.params.id, req.user);
