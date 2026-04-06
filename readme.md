@@ -1,17 +1,33 @@
-# 💰 Financial Data Management And Acces Control Backend API
+# 💰 Financial Data Management & Access Control Backend API
 
-A modular backend system built using **Node.js, Express, and MongoDB** for managing users, financial records, and analytics with **JWT Authentication** and **Role-Based Access Control (RBAC)**.
+A scalable backend system built with **Node.js, Express, and MongoDB** to manage financial records, enforce access control, and provide analytics for a finance dashboard.
+
+---
+
+## 🌐 Live API
+
+👉 https://zorvyn-assesment-kx9x.onrender.com/
+
+---
+
+## ✨ Highlights
+
+* 🔐 Secure authentication using JWT
+* 🔒 Role-Based Access Control (RBAC)
+* 💰 Financial records with advanced filtering
+* 📊 Dashboard analytics using MongoDB aggregation
+* 🧱 Clean modular architecture
+* 🌐 Deployed and production-ready
 
 ---
 
 ## 🚀 Features
 
-* 🔐 JWT Authentication (Register/Login)
+* 🔐 Authentication (Register/Login)
 * 🔒 Role-Based Access Control (Admin / Analyst / Viewer)
 * 👤 User Management (Admin only)
 * 💰 Financial Records (CRUD + Filtering)
 * 📊 Dashboard Analytics (Summary, Trends, Insights)
-* 🧱 Clean Architecture (Route → Controller → Service → Model)
 
 ---
 
@@ -27,7 +43,7 @@ A modular backend system built using **Node.js, Express, and MongoDB** for manag
 
 ## 📁 Project Structure
 
-```
+```bash
 backend/
 ├── config/
 ├── controllers/
@@ -53,9 +69,9 @@ backend/
 
 ### 🔒 Protected Routes
 
-All protected routes require:
+All protected endpoints require:
 
-```
+```bash
 Authorization: Bearer <JWT_TOKEN>
 ```
 
@@ -82,11 +98,9 @@ Authorization: Bearer <JWT_TOKEN>
 
 ---
 
-### 🔍 Filtering Options
+### 🔍 Filtering Examples
 
-You can filter records using query parameters:
-
-```
+```bash
 GET /api/v1/records?type=income
 GET /api/v1/records?category=food
 GET /api/v1/records?startDate=2026-01-01&endDate=2026-12-31
@@ -97,16 +111,16 @@ GET /api/v1/records?type=expense&category=rent
 
 ## 📊 Dashboard Module
 
-| Method | Endpoint            | Access                 | Description             |
-| ------ | ------------------- | ---------------------- | ----------------------- |
-| GET    | `/api/v1/dashboard` | Admin, Analyst, Viewer | Get dashboard analytics |
+| Method | Endpoint            | Access                 | Description         |
+| ------ | ------------------- | ---------------------- | ------------------- |
+| GET    | `/api/v1/dashboard` | Admin, Analyst, Viewer | Dashboard analytics |
 
 ---
 
-### 📈 Dashboard Includes
+### 📈 Dashboard Insights
 
 * Total Income
-* Total Expense
+* Total Expenses
 * Net Balance
 * Category-wise totals
 * Recent activity
@@ -117,22 +131,22 @@ GET /api/v1/records?type=expense&category=rent
 
 ## 🔒 Role-Based Access Control (RBAC)
 
-| Action                | Admin | Analyst | Viewer |
-| --------------------- | ----- | ------- | ------ |
-| Register/Login        | ✅     | ✅       | ✅      |
-| Manage Users          | ✅     | ❌       | ❌      |
-| Create Records        | ✅     | ❌       | ❌      |
-| View Records          | ✅     | ✅       | ❌      |
-| Update/Delete Records | ✅     | ❌       | ❌      |
-| Dashboard Access      | ✅     | ✅       | ✅      |
+| Action           | Admin | Analyst | Viewer |
+| ---------------- | ----- | ------- | ------ |
+| Register/Login   | ✅     | ✅       | ✅      |
+| Manage Users     | ✅     | ❌       | ❌      |
+| Create Records   | ✅     | ❌       | ❌      |
+| View Records     | ✅     | ✅       | ❌      |
+| Update/Delete    | ✅     | ❌       | ❌      |
+| Dashboard Access | ✅     | ✅       | ✅      |
 
 ---
 
-## 🧪 Sample API Requests
+## 🧪 Sample Requests
 
 ### 🔹 Login
 
-```
+```bash
 POST /api/v1/users/login
 ```
 
@@ -147,7 +161,7 @@ POST /api/v1/users/login
 
 ### 🔹 Create Record
 
-```
+```bash
 POST /api/v1/records
 ```
 
@@ -166,7 +180,7 @@ POST /api/v1/records
 
 Create a `.env` file:
 
-```
+```bash
 PORT=5555
 MONGO_URI=your_mongodb_uri
 JWT_SECRET=your_secret_key
@@ -176,19 +190,50 @@ JWT_SECRET=your_secret_key
 
 ## ▶️ Run Locally
 
-```
+```bash
 npm install
 npm run dev
 ```
 
 ---
 
-## 🧠 Key Design Decisions
+## 🧠 Design & Architecture
 
-* Clean separation of concerns (Controller / Service / Model)
-* JWT-based authentication for scalability
-* Role-based middleware for secure access
-* MongoDB aggregation for analytics
+* Route → Controller → Service → Model
+* Centralized error handling
+* Middleware-based authentication & RBAC
+* Aggregation pipelines for analytics
+
+---
+
+## 🔐 Security
+
+* Passwords hashed using bcrypt
+* JWT-based authentication
+* Role-based authorization enforced at route level
+* Sensitive data (like passwords) excluded from responses
+
+---
+
+## 📌 Assumptions
+
+* New users are assigned the **viewer** role by default
+* Only admins can manage users and records
+* Analysts can view records and insights
+* Viewers can access only dashboard data
+
+---
+
+## 🧪 Demo Instructions
+
+1. Login using provided credentials
+2. Copy JWT token
+3. Use token in headers:
+
+   ```
+   Authorization: Bearer <token>
+   ```
+4. Test records and dashboard endpoints
 
 ---
 
@@ -196,13 +241,13 @@ npm run dev
 
 This project demonstrates:
 
-* Secure backend design
-* Scalable architecture
-* Real-world financial data handling
-* Advanced querying and analytics
+* Strong backend architecture
+* Secure authentication & authorization
+* Real-world financial data processing
+* Clean, maintainable, and scalable design
 
 ---
 
 ## 👨‍💻 Author
 
-Ayush Pandey
+**Ayush Pandey**
